@@ -1,7 +1,19 @@
 ﻿__pycache__/
 *.py[cod]
+*$py.class
 .venv/
 venv/
 .env
 .vscode/
 .idea/
+db.sqlite3
+*.log
+
+# Node / React
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS
+.DS_Store
+Thumbs.db
