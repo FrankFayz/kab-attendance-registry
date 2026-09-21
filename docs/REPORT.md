@@ -22,20 +22,40 @@ Student A owns student identity and daily presence.
 - Timestamped Present / Late check-in with same-day update
 - Today's register summary and totals
 - React admin screens and main-menu wiring for roster actions
-- README and this contribution report section
+- README roster section and this contribution report section
 
 ## Student B contribution
 
-Student B owns absence tracking and attendance health reporting.
+Student B owns absence tracking and attendance health reporting. Work lives on `feature/reporting` and must not be committed straight to `main`.
 
-- Flag students missing from today's roster as Absent
-- Attendance rate (days present / school days)
-- Absence streaks from `attendance_log.json`
-- Chronically absent list (attendance below 85%)
-- Wire reporting options into the same main application menu
-- Review and approve Student A's pull request before merge
+| Deliverable | Where it lives |
+| --- | --- |
+| Flag missing students as Absent (timestamped JSON append) | `backend/reporting/services.py` → `mark_absences()` |
+| Attendance rate (present-or-late days ÷ school days) | `attendance_health()` |
+| Absence streaks / consecutive missed days | `absence_streaks()` |
+| Chronic list (below 85%) | `chronic_absences()` |
+| REST endpoints | `backend/reporting/views.py`, `backend/reporting/urls.py` |
+| Wire reporting into the same main menu | `frontend/src/App.jsx` |
+| API client | `frontend/src/api.js` |
+| Unit tests | `backend/reporting/tests.py` |
+| Sample JSON so reports are demoable | `data/attendance_log.json` |
+| Module documentation | `README.md` |
 
-*(Student B fills in commit hashes and PR links when the reporting module is complete.)*
+Student B also:
+
+- Reviews, comments on, and approves Student A's pull request before it is merged
+- Opens the `feature/reporting` pull request after that merge
+- Fetches updated `main`, merges it into `feature/reporting`, and resolves the expected conflict in `frontend/src/App.jsx` so roster **and** reporting menu options both remain
+- Pushes the resolution commit and completes the reporting PR
+
+Fill in after GitHub work is done:
+
+| Evidence | Link / hash |
+| --- | --- |
+| Student B GitHub profile | |
+| `feature/reporting` PR | |
+| Review comment / approval on Student A's PR | |
+| Merge-conflict resolution commit | |
 
 ## DevOps evidence to collect
 
@@ -43,4 +63,4 @@ Student B owns absence tracking and attendance health reporting.
 - [ ] `feature/reporting` PR opened after Student A's merge
 - [ ] Merge conflict in `frontend/src/App.jsx` resolved on `feature/reporting`
 - [ ] No direct feature commits on `main` after initial setup
-- [ ] Contributor graph shows both GitHub profiles
+- [ ] Contributor graph shows both GitHub profiles (each student must commit with their own GitHub email)
