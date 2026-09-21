@@ -32,3 +32,27 @@ export function checkIn(payload) {
 export function todaySummary() {
   return request("/api/check-ins/today/");
 }
+
+export function markAbsences(date) {
+  return request("/api/mark-absences/", {
+    method: "POST",
+    headers,
+    body: JSON.stringify(date ? { date } : {}),
+  });
+}
+
+export function attendanceHealth() {
+  return request("/api/health/");
+}
+
+export function chronicAbsences() {
+  return request("/api/chronic/");
+}
+
+export function absenceStreaks() {
+  return request("/api/streaks/");
+}
+
+export function reportingDashboard() {
+  return request("/api/dashboard/");
+}

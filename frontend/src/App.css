@@ -164,6 +164,32 @@ td {
   color: #8a5a00;
 }
 
+.pill.absent,
+.pill.chronic {
+  background: #fde8e8;
+  color: #8a1f1f;
+}
+
+.primary {
+  width: fit-content;
+  background: #1d4e89;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.result-block {
+  margin-top: 16px;
+}
+
 .empty {
   color: #5b6f86;
 }
