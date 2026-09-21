@@ -1,66 +1,83 @@
-# KAB Attendance Registry — Process Report
+# KAB Attendance Registry — Team Report
 
-**Institution:** KAB  
-**Assignment:** Student Attendance Register  
+**Course task:** Student Attendance Register  
 **Date:** 21 September 2026  
-**Team size:** 2
+**Team:** 2 students  
 
-## Role assignment
+This is the process report for the KAB attendance registry. We built a small web app so the school can stop using paper attendance sheets. Records are saved in a local JSON file (`attendance_log.json`), not a database. We split the work into two modules, developed them on separate feature branches, and planned to join them on `main` through pull requests.
 
-| Person | Module | Git branch |
+---
+
+## Who did what
+
+We agreed the split before writing feature code.
+
+| | Student A — Frank Fayz | Student B |
 | --- | --- | --- |
-| Student A — Frank Fayz | Roster & Check-In | `feature/roster` |
-| Student B | Absence & Reporting | `feature/reporting` |
+| Role | Roster and daily check-in | Absences and reporting |
+| Branch | `feature/roster` | `feature/reporting` |
 
-## Student A contribution
+Neither of us committed feature work straight to `main` after the repo was set up.
 
-Student A owns student identity and daily presence.
+---
 
-- Repository setup follow-through on `feature/roster` (no feature work on `main`)
-- Django JSON store for `attendance_log.json`
-- Create student profile (name, student ID)
-- Timestamped Present / Late check-in with same-day update
-- Today's register summary and totals
-- React admin screens and main-menu wiring for roster actions
-- README roster section and this contribution report section
+## Student A — Frank Fayz (Roster & Check-In)
 
-## Student B contribution
+Frank set up the project and built the side that knows who the students are and who showed up.
 
-Student B owns absence tracking and attendance health reporting. Work lives on `feature/reporting` and must not be committed straight to `main`.
+He initialized the public repository, added the README and `.gitignore`, and scaffolded the Django API plus the React admin screen. From there he owned the roster:
 
-| Deliverable | Where it lives |
-| --- | --- |
-| Flag missing students as Absent (timestamped JSON append) | `backend/reporting/services.py` → `mark_absences()` |
-| Attendance rate (present-or-late days ÷ school days) | `attendance_health()` |
-| Absence streaks / consecutive missed days | `absence_streaks()` |
-| Chronic list (below 85%) | `chronic_absences()` |
-| REST endpoints | `backend/reporting/views.py`, `backend/reporting/urls.py` |
-| Wire reporting into the same main menu | `frontend/src/App.jsx` |
-| API client | `frontend/src/api.js` |
-| Unit tests | `backend/reporting/tests.py` |
-| Sample JSON so reports are demoable | `data/attendance_log.json` |
-| Module documentation | `README.md` |
+- Admins can create a student profile with a name and student ID.
+- They can log a timestamped **Present** or **Late** check-in for today.
+- If the same student is checked in twice on the same day, the existing JSON row is updated instead of duplicated.
+- There is a simple “today’s register” view that lists everyone already checked in, with totals.
 
-Student B also:
+That work lives mainly in `backend/roster/` and in the first version of the shared menu in `frontend/src/App.jsx`. His commits on `feature/roster` cover the JSON store, the roster API, the check-in screens, and the roster section of the README.
 
-- Reviews, comments on, and approves Student A's pull request before it is merged
-- Opens the `feature/reporting` pull request after that merge
-- Fetches updated `main`, merges it into `feature/reporting`, and resolves the expected conflict in `frontend/src/App.jsx` so roster **and** reporting menu options both remain
-- Pushes the resolution commit and completes the reporting PR
+---
 
-Fill in after GitHub work is done:
+## Student B — Absence & Reporting
 
-| Evidence | Link / hash |
-| --- | --- |
-| Student B GitHub profile | |
-| `feature/reporting` PR | |
-| Review comment / approval on Student A's PR | |
-| Merge-conflict resolution commit | |
+Student B built the side that looks at the same JSON file and answers “who is missing, and how healthy is attendance?”
 
-## DevOps evidence to collect
+The reporting module can:
 
-- [ ] `feature/roster` PR reviewed, approved, and merged by Student B
-- [ ] `feature/reporting` PR opened after Student A's merge
-- [ ] Merge conflict in `frontend/src/App.jsx` resolved on `feature/reporting`
-- [ ] No direct feature commits on `main` after initial setup
-- [ ] Contributor graph shows both GitHub profiles (each student must commit with their own GitHub email)
+- Flag every roster student who has no Present/Late row for a given day as **Absent**, and write that row with a timestamp.
+- Calculate an attendance rate for each student (days present or late, divided by school days in the log). Late still counts as attended.
+- Show absence streaks — how many days in a row someone has been missing, and their longest streak.
+- List chronically absent students, using 85% as the cutoff.
+
+That work lives in `backend/reporting/`. Student B also added the reporting buttons to the **same main menu** in `frontend/src/App.jsx` so both modules sit in one admin console. Sample rows were put in `attendance_log.json` so the reports are not empty when you first open the app.
+
+Student B’s commits on `feature/reporting` cover the reporting APIs, the extra menu screens, the sample log, and this write-up.
+
+Student B’s GitHub review job (as required by the brief): review and approve Frank’s roster pull request, then open the reporting pull request. After the roster PR lands on `main`, merge `main` into `feature/reporting`, fix the expected conflict in `App.jsx` so both sets of menu options stay, and complete the second PR.
+
+---
+
+## How the two parts fit together
+
+Frank’s module writes students and check-ins. Student B’s module reads that same file, fills in Absents, and prints health numbers. The shared entry point is `frontend/src/App.jsx`. We both had to touch that file on purpose so Git would treat it like a real integration, not two disconnected apps.
+
+End to end, an admin can add a student, check them in, flag whoever did not show up, then look at rates, streaks, and the chronic list.
+
+---
+
+## Git workflow we followed
+
+1. `main` is production. Feature work stays on `feature/roster` and `feature/reporting`.
+2. Student A opens a pull request from `feature/roster`. Student B reviews it, leaves a comment or approval, and merges it.
+3. Student B opens a pull request from `feature/reporting`. Because both people edited the main menu, GitHub may flag a merge conflict.
+4. Student B fetches the updated `main`, merges it locally, keeps both roster and reporting menu items, commits the fix, and finishes the PR.
+
+That gives the history the brief asks for: two feature branches, two pull requests, a review, and a conflict resolved on the reporting branch rather than by forcing work onto `main`.
+
+---
+
+## What to attach on submission
+
+- Public GitHub repo: `kab-attendance-registry`
+- This report (each person’s contribution is in the sections above)
+- Screenshots or a short note if the lecturer wants proof the app runs
+
+If Student B’s GitHub display name is not filled in on the repo yet, add it on the reporting commits before pushing so Insights shows both people.
