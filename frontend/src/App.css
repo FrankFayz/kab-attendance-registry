@@ -1,0 +1,169 @@
+.shell {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.hero {
+  background: #10233a;
+  color: #f4f7fb;
+  padding: 28px 24px;
+  border-radius: 16px;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #9bb4d0;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.lede {
+  margin: 0;
+  color: #d5e2f0;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.menu button {
+  border: 1px solid #c5d3e2;
+  background: #fff;
+  color: #10233a;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.menu button.active {
+  background: #1d4e89;
+  border-color: #1d4e89;
+  color: #fff;
+}
+
+.banner {
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0 0 16px;
+}
+
+.banner.ok {
+  background: #e5f6ea;
+  color: #1b5e2f;
+}
+
+.banner.error {
+  background: #fde8e8;
+  color: #8a1f1f;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d7e1ec;
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.stats article {
+  background: #f5f8fc;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stats strong {
+  display: block;
+  font-size: 28px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+  max-width: 420px;
+}
+
+.form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.form input,
+.form select {
+  border: 1px solid #c5d3e2;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.form button,
+.menu button {
+  font-weight: 600;
+}
+
+.form button {
+  width: fit-content;
+  background: #1d4e89;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #e4ebf3;
+}
+
+.pill {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pill.present {
+  background: #e5f6ea;
+  color: #1b5e2f;
+}
+
+.pill.late {
+  background: #fff4d6;
+  color: #8a5a00;
+}
+
+.empty {
+  color: #5b6f86;
+}
