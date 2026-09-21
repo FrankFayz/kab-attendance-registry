@@ -14,6 +14,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "roster",
+    "reporting",
 ]
 
 MIDDLEWARE = [
