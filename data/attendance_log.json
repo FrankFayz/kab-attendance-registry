@@ -1,4 +1,126 @@
 {
-  "students": [],
-  "attendance": []
+  "students": [
+    {
+      "student_id": "KAB-1001",
+      "name": "Amina Nalwoga",
+      "created_at": "2026-09-15T08:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1002",
+      "name": "John Okello",
+      "created_at": "2026-09-15T08:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1003",
+      "name": "Sarah Atim",
+      "created_at": "2026-09-15T08:00:00+03:00"
+    }
+  ],
+  "attendance": [
+    {
+      "student_id": "KAB-1001",
+      "name": "Amina Nalwoga",
+      "status": "Present",
+      "date": "2026-09-15",
+      "timestamp": "2026-09-15T08:10:00+03:00"
+    },
+    {
+      "student_id": "KAB-1001",
+      "name": "Amina Nalwoga",
+      "status": "Late",
+      "date": "2026-09-16",
+      "timestamp": "2026-09-16T08:22:00+03:00"
+    },
+    {
+      "student_id": "KAB-1001",
+      "name": "Amina Nalwoga",
+      "status": "Present",
+      "date": "2026-09-17",
+      "timestamp": "2026-09-17T08:05:00+03:00"
+    },
+    {
+      "student_id": "KAB-1001",
+      "name": "Amina Nalwoga",
+      "status": "Present",
+      "date": "2026-09-18",
+      "timestamp": "2026-09-18T08:08:00+03:00"
+    },
+    {
+      "student_id": "KAB-1002",
+      "name": "John Okello",
+      "status": "Absent",
+      "date": "2026-09-15",
+      "timestamp": "2026-09-15T16:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1002",
+      "name": "John Okello",
+      "status": "Absent",
+      "date": "2026-09-16",
+      "timestamp": "2026-09-16T16:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1002",
+      "name": "John Okello",
+      "status": "Present",
+      "date": "2026-09-17",
+      "timestamp": "2026-09-17T08:14:00+03:00"
+    },
+    {
+      "student_id": "KAB-1002",
+      "name": "John Okello",
+      "status": "Absent",
+      "date": "2026-09-18",
+      "timestamp": "2026-09-18T16:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1003",
+      "name": "Sarah Atim",
+      "status": "Absent",
+      "date": "2026-09-15",
+      "timestamp": "2026-09-15T16:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1003",
+      "name": "Sarah Atim",
+      "status": "Absent",
+      "date": "2026-09-16",
+      "timestamp": "2026-09-16T16:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1003",
+      "name": "Sarah Atim",
+      "status": "Absent",
+      "date": "2026-09-17",
+      "timestamp": "2026-09-17T16:00:00+03:00"
+    },
+    {
+      "student_id": "KAB-1003",
+      "name": "Sarah Atim",
+      "status": "Late",
+      "date": "2026-09-18",
+      "timestamp": "2026-09-18T08:40:00+03:00"
+    },
+    {
+      "student_id": "KAB-1001",
+      "name": "Amina Nalwoga",
+      "status": "Absent",
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T15:39:59.399374+03:00"
+    },
+    {
+      "student_id": "KAB-1002",
+      "name": "John Okello",
+      "status": "Absent",
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T15:39:59.399401+03:00"
+    },
+    {
+      "student_id": "KAB-1003",
+      "name": "Sarah Atim",
+      "status": "Absent",
+      "date": "2026-09-21",
+      "timestamp": "2026-09-21T15:39:59.399411+03:00"
+    }
+  ]
 }
